@@ -52,6 +52,15 @@ function playRound(playerSelection, computerSelection) {
                     };
 };
 
+function game() {
+    for (let round = 1; round <=5; round++) {
+        console.log(`Round ${round}!`);
+        
+        playRound(playerSelection, computerSelection);
+    }
+}
+
+/*
 const playerSelection = `Scissors`;
 const computerSelection = computerPlay();
 
@@ -63,3 +72,4 @@ let lose = `${pick}You lose!`;
 
 
 console.log(playRound(playerSelection, computerSelection));
+*/
