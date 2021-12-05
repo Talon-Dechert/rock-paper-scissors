@@ -15,13 +15,22 @@ function computerPlay() {
 };
 
 function playRound(playerSelection, computerSelection) {
-    if (playerSelection === null) {
+    
+    quit = `No worries! Try again another time!`;
+    
+    if (playerSelection == "" || playerSelection.toLowerCase() === 'nothing'){
         return(quit);
-    }
-
+    };
+    
     playerSelection = playerSelection.toLowerCase();
-
+    
     computerSelection = computerSelection.toLowerCase();
+    
+    pick = `You picked ${playerSelection}.\nComputer picked ${computerSelection}. \n`;
+    tie = `${pick}It's a tie!`;
+    win = `${pick}You win!`;
+    lose = `${pick}You lose!`;
+    error = `Error! Try again! You entered ${playerSelection}`;
 
     switch (playerSelection) {
         case 'rock':
@@ -34,7 +43,7 @@ function playRound(playerSelection, computerSelection) {
             } else {
                 return(win);
                 break;
-            }
+            };
         case 'paper':
             if (computerSelection === 'rock') {
                 return(win);
@@ -45,7 +54,7 @@ function playRound(playerSelection, computerSelection) {
             } else {
                 return(tie);
                 break;
-            }
+            };
         case 'scissors':
             if (computerSelection === 'rock'){
                 return(lose);
@@ -56,7 +65,7 @@ function playRound(playerSelection, computerSelection) {
             } else {
                 return(tie);
                 break;
-            }
+            };
         default:
             return(error);
             break;
@@ -67,41 +76,48 @@ function playRound(playerSelection, computerSelection) {
 
 function game() {
     
-    let score = 0;
+    let playerScore = 0;
+    let computerScore = 0;
     
     for (let round = 1; round <=5; round++) {
         console.log(`Round ${round}!`);
         
-        playerSelection = prompt(`Choose one!`, `Rock, Paper, Scissors`);
+        playerSelection = prompt(`Choose one! To quit, enter "nothing"!`, `Rock, Paper, Scissors!`);
         computerSelection = computerPlay();
         
         
         let result = playRound(playerSelection, computerSelection);
         
         if (result === win){
-            score++;
+            playerScore++;
         } else if (result === lose) {
-            score--;
+            computerScore++;
         } else if (result === error){
             round--;
         } else if (result === quit){
+            console.log(quit);
             break;
         }
         
         console.log(result);
-    }
+        console.log(`Your score is ${playerScore}! \nComputer score is ${computerScore}!`);
+
+        /*if (round == 5) {
+            return(playerScore, computerScore);
+        }*/
+    };
+    if (playerScore > computerScore) {
+        console.log(`Game over! You win, good job!`);
+    } else if (computerScore > playerScore) {
+        console.log(`Game over! You lose, better luck next time!`);
+    } else if (playerScore == computerScore) {
+        console.log(`Game over! It's a tie!`);
+    };
 }
 
 game();
 
-pick = `You picked ${playerSelection}.
-Computer picked ${computerSelection}. \n`;
 
-tie = `${pick}It's a tie!`;
-win = `${pick}You win!`;
-lose = `${pick}You lose!`;
-error = `Error! Try again! You entered ${playerSelection}`;
-quit = `No worries! Try again another time!`;
 
 
 
