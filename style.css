@@ -1,0 +1,35 @@
+.mainContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title {
+    min-width:600px;
+    text-align: center;
+}
+
+.game {
+    min-width: 600px;
+}
+
+.buttonList {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    justify-content: space-around;
+}
+
+.gameButton {
+    display: flex;
+    border: 1px solid black;
+    width: 100px;
+    height: 100px;
+    align-items: center;
+    justify-content: center;
+}
+
+.result {
+    min-width: 600px;
+}

@@ -66,30 +66,7 @@ function game() {
     };
 
     
-    for (let round = 1; round <=5; round++) {
-        console.log(`Round ${round}!`);
-        
-        let playerSelection = prompt(`Choose one! To quit, enter "nothing"!`, `Rock, Paper, Scissors!`);
-        let computerSelection = computerPlay();
-        
-        
-        let result = playRound(playerSelection, computerSelection);
-        
-        if (result === win){
-            playerScore++;
-        } else if (result === lose) {
-            computerScore++;
-        } else if (result === error){
-            round--;
-        } else if (result === quit){
-            console.log(quit);
-            break;
-        }
-        
-        console.log(result);
-        console.log(`Your score is ${playerScore}! \nComputer score is ${computerScore}!`);
-
-    };
+    
     if (playerScore > computerScore) {
         console.log(`Game over! You win, good job!`);
     } else if (computerScore > playerScore) {
@@ -99,4 +76,40 @@ function game() {
     };
 }
 
-game();
+// game();
+
+
+
+
+
+
+
+/*
+
+Old game logic for console playing
+
+for (let round = 1; round <=5; round++) {
+    console.log(`Round ${round}!`);
+    
+    let playerSelection = prompt(`Choose one! To quit, enter "nothing"!`, `Rock, Paper, Scissors!`);
+    let computerSelection = computerPlay();
+    
+    
+    let result = playRound(playerSelection, computerSelection);
+    
+    if (result === win){
+        playerScore++;
+    } else if (result === lose) {
+        computerScore++;
+    } else if (result === error){
+        round--;
+    } else if (result === quit){
+        console.log(quit);
+        break;
+    }
+    
+    console.log(result);
+    console.log(`Your score is ${playerScore}! \nComputer score is ${computerScore}!`);
+
+};
+*/
