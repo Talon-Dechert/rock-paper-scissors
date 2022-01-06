@@ -76,6 +76,19 @@ function game() {
     };
 }
 
+
+//Button Functionality
+/* 
+const chooseButton = () => {
+    
+}
+*/
+
+// window.addEventListener('click')
+
+// const buttons = document.querySelectorAll('.gameButton');
+
+
 // game();
 
 
