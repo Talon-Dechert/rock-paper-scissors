@@ -8,8 +8,6 @@ function game() {
     let lose;
     let error;
     let quit = `No worries! Try again another time!`;
-    let playerSelection;
-    let computerSelection;
 
 
     let playerScore = 0;
@@ -71,8 +69,8 @@ function game() {
     for (let round = 1; round <=5; round++) {
         console.log(`Round ${round}!`);
         
-        playerSelection = prompt(`Choose one! To quit, enter "nothing"!`, `Rock, Paper, Scissors!`);
-        computerSelection = computerPlay();
+        let playerSelection = prompt(`Choose one! To quit, enter "nothing"!`, `Rock, Paper, Scissors!`);
+        let computerSelection = computerPlay();
         
         
         let result = playRound(playerSelection, computerSelection);
