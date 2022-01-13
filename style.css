@@ -57,7 +57,7 @@ body {
     transform: scale(1.2);
     background-color: darkkhaki;
     border: 0.25em solid rgb(20, 90, 20);
-    
+    box-shadow: .5em .5em 3em rgb(3, 53, 3);
 }
 
 .buttText {
@@ -74,4 +74,5 @@ body {
     border-radius: 0.5em;
     background-color: slateblue;
     margin: 5px;
+    transition: 0.2s;
 }
