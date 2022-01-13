@@ -55,13 +55,14 @@ body {
 
 .selected {
     transform: scale(1.2);
-
+    background-color: darkkhaki;
+    border: 0.25em solid rgb(20, 90, 20);
+    
 }
 
 .buttText {
     font-size: 1.5em;
     color:rgb(104, 16, 33);
-    text-shadow: .5px .5px black;
 }
 
 .result {
