@@ -7,7 +7,6 @@ function game() {
     let win;
     let lose;
     let error;
-    let quit = `No worries! Try again another time!`;
 
 
     let playerScore = 0;
@@ -21,14 +20,6 @@ function game() {
 
     function playRound(playerSelection, computerSelection) {
         
-        if (playerSelection == "" || playerSelection.toLowerCase() === 'nothing'){
-            return(quit);
-        };
-        
-        playerSelection = playerSelection.toLowerCase();
-        
-        computerSelection = computerSelection.toLowerCase();
-        
         pick = `You picked ${playerSelection}.\nComputer picked ${computerSelection}. \n`;
         tie = `${pick}It's a tie!`;
         win = `${pick}You win!`;
@@ -36,26 +27,26 @@ function game() {
         error = `Error! Try again! You entered ${playerSelection}`;
     
         switch (playerSelection) {
-            case 'rock':
-                if (computerSelection === 'rock') {
+            case 'Rock':
+                if (computerSelection === 'Rock') {
                     return(tie);
-                } else if (computerSelection === 'paper') {
+                } else if (computerSelection === 'Paper') {
                     return(lose);
                 } else {
                     return(win);
                 };
-            case 'paper':
-                if (computerSelection === 'rock') {
+            case 'Paper':
+                if (computerSelection === 'Rock') {
                     return(win);
-                } else if (computerSelection === 'scissors') {
+                } else if (computerSelection === 'Scissors') {
                     return(lose);
                 } else {
                     return(tie);
                 };
-            case 'scissors':
-                if (computerSelection === 'rock'){
+            case 'Scissors':
+                if (computerSelection === 'Rock'){
                     return(lose);
-                } else if (computerSelection === 'paper') {
+                } else if (computerSelection === 'Paper') {
                     return(win);
                 } else {
                     return(tie);
@@ -78,15 +69,20 @@ function game() {
 
 
 //Button Functionality
-/* 
-const chooseButton = () => {
-    
-}
-*/
 
-// window.addEventListener('click')
+const buttChoices = document.querySelectorAll('.gameButton');
+const resultDiv = document.querySelector('#Result');
 
-// const buttons = document.querySelectorAll('.gameButton');
+buttChoices.forEach(choice => choice.addEventListener('click', (e) => {
+    buttChoices.forEach(btn => btn.classList.remove('selected'));
+
+    e.currentTarget.classList.add('selected');
+    console.log(e.currentTarget);
+
+    resultDiv.textContent = `${e.currentTarget.getAttribute('id')}`
+
+}));
+
 
 
 // game();
