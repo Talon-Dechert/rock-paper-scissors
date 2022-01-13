@@ -7,8 +7,10 @@ function game() {
     let win;
     let lose;
     let error;
+    let playerSelection;
+    let computerSelection;
 
-
+    
     let playerScore = 0;
     let computerScore = 0;
 
@@ -17,6 +19,38 @@ function game() {
         
         return selection[roll];
     };
+
+    //Button Functionality
+    
+    const buttChoices = document.querySelectorAll('.gameButton');
+    const resultDiv = document.querySelector('#Result');
+    
+    buttChoices.forEach(choice => choice.addEventListener('click', (e) => {
+        buttChoices.forEach(btn => btn.classList.remove('selected'));
+    
+        e.currentTarget.classList.add('selected');
+        playerSelection = e.currentTarget.getAttribute('id');
+        computerSelection = computerPlay();
+    
+        console.log(e.currentTarget);
+    
+        resultDiv.textContent = `${e.currentTarget.getAttribute('id')}`;
+
+        let result = playRound(playerSelection, computerSelection);
+        
+        if (result === win){
+            playerScore++;
+        } else if (result === lose) {
+            computerScore++;
+        } else if (result === error){
+            round--;
+        };
+        
+        console.log(result);
+        console.log(`Your score is ${playerScore}! \nComputer score is ${computerScore}!`);
+    
+    }));
+
 
     function playRound(playerSelection, computerSelection) {
         
@@ -55,37 +89,13 @@ function game() {
                 return(error);
             };
     };
-
-    
-    
-    if (playerScore > computerScore) {
-        console.log(`Game over! You win, good job!`);
-    } else if (computerScore > playerScore) {
-        console.log(`Game over! You lose, better luck next time!`);
-    } else {
-        console.log(`Game over! It's a tie!`);
-    };
 }
 
 
-//Button Functionality
-
-const buttChoices = document.querySelectorAll('.gameButton');
-const resultDiv = document.querySelector('#Result');
-
-buttChoices.forEach(choice => choice.addEventListener('click', (e) => {
-    buttChoices.forEach(btn => btn.classList.remove('selected'));
-
-    e.currentTarget.classList.add('selected');
-    console.log(e.currentTarget);
-
-    resultDiv.textContent = `${e.currentTarget.getAttribute('id')}`
-
-}));
 
 
 
-// game();
+game();
 
 
 
