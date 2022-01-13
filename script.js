@@ -24,6 +24,7 @@ function game() {
     
     const buttChoices = document.querySelectorAll('.gameButton');
     const resultDiv = document.querySelector('#Result');
+
     
     buttChoices.forEach(choice => choice.addEventListener('click', (e) => {
         buttChoices.forEach(btn => btn.classList.remove('selected'));
@@ -49,6 +50,10 @@ function game() {
         console.log(result);
         console.log(`Your score is ${playerScore}! \nComputer score is ${computerScore}!`);
     
+    }));
+
+    buttChoices.forEach(chosen => chosen.addEventListener('transitionend', (e) => {
+        buttChoices.forEach(btn => btn.classList.remove('selected'));
     }));
 
 
