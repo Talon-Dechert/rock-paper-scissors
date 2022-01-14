@@ -20,46 +20,6 @@ function game() {
         return selection[roll];
     };
 
-    //Button Functionality
-    
-    const buttChoices = document.querySelectorAll('.gameButton');
-    const resultH3 = document.querySelector('#Result');
-
-    
-    buttChoices.forEach(choice => choice.addEventListener('click', (e) => {
-        buttChoices.forEach(btn => btn.classList.remove('selected'));
-    
-        e.currentTarget.classList.add('selected');
-
-        playerSelection = e.currentTarget.getAttribute('id');
-        computerSelection = computerPlay();
-    
-        console.log(e.currentTarget);
-
-
-        //add a display: none style to this
-        // resultH3.textContent = `${e.currentTarget.getAttribute('id')}`;
-
-        let result = playRound(playerSelection, computerSelection);
-        
-        if (result === win){
-            playerScore++;
-        } else if (result === lose) {
-            computerScore++;
-        } else if (result === error){
-            round--;
-        };
-        
-        console.log(result);
-        console.log(`Your score is ${playerScore}! \nComputer score is ${computerScore}!`);
-    
-    }));
-
-    buttChoices.forEach(chosen => chosen.addEventListener('transitionend', (e) => {
-        buttChoices.forEach(btn => btn.classList.remove('selected'));
-    }));
-
-
     function playRound(playerSelection, computerSelection) {
         
         pick = `You picked ${playerSelection}.\nComputer picked ${computerSelection}. \n`;
@@ -97,6 +57,55 @@ function game() {
                 return(error);
             };
     };
+    
+    //Button Functionality
+    
+    const buttChoices = document.querySelectorAll('.gameButton');
+    const resultH3 = document.querySelector('#Result');
+    const battleDiv = document.querySelector('#fightTime');
+    const resultDiv = document.querySelector('.result');
+
+    
+    buttChoices.forEach(choice => choice.addEventListener('click', (e) => {
+        buttChoices.forEach(btn => btn.classList.remove('selected'));
+    
+        e.currentTarget.classList.add('selected');
+
+        playerSelection = e.currentTarget.getAttribute('id');
+        computerSelection = computerPlay();
+    
+        console.log(e.currentTarget);
+
+
+        //Trigger the change in resultDiv
+
+        
+        if (battleDiv.getAttribute('class') == 'battle hidden'){
+            resultH3.classList.add('hidden');
+            resultDiv.classList.add('updated');
+            battleDiv.setAttribute('class', 'battle');
+        };
+
+        let result = playRound(playerSelection, computerSelection);
+        
+        if (result === win){
+            playerScore++;
+        } else if (result === lose) {
+            computerScore++;
+        } else if (result === error){
+            round--;
+        };
+        
+        console.log(result);
+        console.log(`Your score is ${playerScore}! \nComputer score is ${computerScore}!`);
+    
+    }));
+
+    buttChoices.forEach(chosen => chosen.addEventListener('transitionend', (e) => {
+        buttChoices.forEach(btn => btn.classList.remove('selected'));
+    }));
+
+
 }
 
 

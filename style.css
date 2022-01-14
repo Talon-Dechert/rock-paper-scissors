@@ -69,16 +69,20 @@ body {
     display: flex;
     min-width: 600px;
     min-height: 100px;
-    justify-content: center;
-    font-size: 3em;
     border: 0.05em solid rgb(80, 65, 182);
     border-radius: 0.5em;
     background-color: slateblue;
     margin: 5px;
     transition: 0.2s;
+    justify-content: center;
+    font-size: 3em;
 }
 
 .updated {
     justify-content: flex-start;
-    
+    font-size: 1em;
+}
+
+.hidden {
+    display: none;
 }
