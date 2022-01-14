@@ -1,6 +1,4 @@
 # rock-paper-scissors
-A simple game of rock paper scissors as per the odin project
+A simple game of rock paper scissors turned into a chance for me to practice some fun DOM Manipulation and CSS. 
 
-
-As of right now it's only going to be playable in the console on the page,
-GUI to be added later :)
+I doubt any of this is best practice as I'm trying to write it all 'off the cuff' for now. 
