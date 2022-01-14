@@ -57,13 +57,15 @@ function game() {
                 return(error);
             };
     };
-    
+
     //Button Functionality
     
     const buttChoices = document.querySelectorAll('.gameButton');
     const resultH3 = document.querySelector('#Result');
     const battleDiv = document.querySelector('#fightTime');
     const resultDiv = document.querySelector('.result');
+    const playerScoreDisplay = document.querySelector('#playerScore');
+    const compScoreDisplay = document.querySelector('#compScore');
 
     
     buttChoices.forEach(choice => choice.addEventListener('click', (e) => {
@@ -82,7 +84,7 @@ function game() {
         
         if (battleDiv.getAttribute('class') == 'battle hidden'){
             resultH3.classList.add('hidden');
-            resultDiv.classList.add('updated');
+            resultDiv.classList.remove('updated');
             battleDiv.setAttribute('class', 'battle');
         };
 
@@ -97,7 +99,11 @@ function game() {
         };
         
         console.log(result);
-        console.log(`Your score is ${playerScore}! \nComputer score is ${computerScore}!`);
+
+        playerScoreDisplay.textContent = `${playerScore}`;
+        compScoreDisplay.textContent = `${computerScore}`;
+
+        // console.log(`Your score is ${playerScore}! \nComputer score is ${computerScore}!`);
     
     }));
 
