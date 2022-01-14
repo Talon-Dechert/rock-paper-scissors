@@ -23,19 +23,22 @@ function game() {
     //Button Functionality
     
     const buttChoices = document.querySelectorAll('.gameButton');
-    const resultDiv = document.querySelector('#Result');
+    const resultH3 = document.querySelector('#Result');
 
     
     buttChoices.forEach(choice => choice.addEventListener('click', (e) => {
         buttChoices.forEach(btn => btn.classList.remove('selected'));
     
         e.currentTarget.classList.add('selected');
+
         playerSelection = e.currentTarget.getAttribute('id');
         computerSelection = computerPlay();
     
         console.log(e.currentTarget);
-    
-        resultDiv.textContent = `${e.currentTarget.getAttribute('id')}`;
+
+
+        //add a display: none style to this
+        // resultH3.textContent = `${e.currentTarget.getAttribute('id')}`;
 
         let result = playRound(playerSelection, computerSelection);
         
