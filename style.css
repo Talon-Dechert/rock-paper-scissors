@@ -72,13 +72,13 @@ body {
     border-radius: 0.5em;
     background-color: slateblue;
     margin: 5px;
-    transition: 0.2s;
     font-size: 3em;
 }
 
 .updated {
     display: flex;
     justify-content: center;
+    /* transition: 0.5s; */
 }
 
 .battle {
@@ -88,6 +88,7 @@ body {
     justify-content: space-between;
     align-items: center;
     flex-shrink: 1;
+    transition: 0.5s;
 }
 
 .hidden {
@@ -104,6 +105,12 @@ body {
 
 .battleField {
     width: 300px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.rightField {
+    text-align: end;
 }
 
 h4 {

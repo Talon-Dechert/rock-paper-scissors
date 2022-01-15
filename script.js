@@ -61,26 +61,39 @@ function game() {
     //Button Functionality
     
     const buttChoices = document.querySelectorAll('.gameButton');
+
     const resultH3 = document.querySelector('#Result');
-    const battleDiv = document.querySelector('#fightTime');
+
     const resultDiv = document.querySelector('.result');
+    
+    const battleDiv = document.querySelector('#fightTime');
+
     const playerScoreDisplay = document.querySelector('#playerScore');
+    const playerChoiceDisplay = document.querySelector('#playerChoice');
+
     const compScoreDisplay = document.querySelector('#compScore');
+    const compChoiceDisplay = document.querySelector('#compChoice');
 
     
     buttChoices.forEach(choice => choice.addEventListener('click', (e) => {
         buttChoices.forEach(btn => btn.classList.remove('selected'));
+
+        // End the game at 5 points
+
+        if ((playerScore == 5) || (computerScore == 5)) {
+            buttChoices.forEach(buttonOption => buttonOption.removeEventListener('click'));
+
+        }
     
         e.currentTarget.classList.add('selected');
 
         playerSelection = e.currentTarget.getAttribute('id');
         computerSelection = computerPlay();
     
-        console.log(e.currentTarget);
+        console.log(playerSelection);
 
 
-        //Trigger the change in resultDiv
-
+        // Trigger the change in resultDiv
         
         if (battleDiv.getAttribute('class') == 'battle hidden'){
             resultH3.classList.add('hidden');
@@ -101,7 +114,11 @@ function game() {
         console.log(result);
 
         playerScoreDisplay.textContent = `${playerScore}`;
+        playerChoiceDisplay.textContent = `${playerSelection}`;
+
+
         compScoreDisplay.textContent = `${computerScore}`;
+        compChoiceDisplay.textContent = `${computerSelection}`;
 
         // console.log(`Your score is ${playerScore}! \nComputer score is ${computerScore}!`);
     
