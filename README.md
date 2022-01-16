@@ -5,9 +5,8 @@ I doubt any of this is best practice as I'm trying to write it all 'off the cuff
 
 
 TODO: 
-    -Refactor JS code to be more functional and less 'out-in-the-open'
+    -Design creative way to announce round winner
+    -Announce winner
     -Create group of small divs to represent health bars
     -Pop divs off as points are scored
-    -Announce winner
     -Align resultdiv contents
-    -Design creative way to announce round winner

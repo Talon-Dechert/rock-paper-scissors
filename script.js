@@ -1,6 +1,14 @@
 
 function game() {
     
+    const playerScoreDisplay = document.querySelector('#playerScore');
+    const playerChoiceDisplay = document.querySelector('#playerChoice');
+    const compScoreDisplay = document.querySelector('#compScore');
+    const compChoiceDisplay = document.querySelector('#compChoice');
+    const buttChoices = document.querySelectorAll('.gameButton');
+    const resultH3 = document.querySelector('#Result');
+    const resultDiv = document.querySelector('.result');
+    const battleDiv = document.querySelector('#fightTime');
     let selection = ['Rock', 'Paper', 'Scissors'];
     let pick;
     let tie;
@@ -19,6 +27,8 @@ function game() {
         
         return selection[roll];
     };
+
+    // Game logic
 
     function playRound(playerSelection, computerSelection) {
         
@@ -58,22 +68,8 @@ function game() {
             };
     };
 
+
     //Button Functionality
-    
-    const buttChoices = document.querySelectorAll('.gameButton');
-
-    const resultH3 = document.querySelector('#Result');
-
-    const resultDiv = document.querySelector('.result');
-    
-    const battleDiv = document.querySelector('#fightTime');
-
-    const playerScoreDisplay = document.querySelector('#playerScore');
-    const playerChoiceDisplay = document.querySelector('#playerChoice');
-
-    const compScoreDisplay = document.querySelector('#compScore');
-    const compChoiceDisplay = document.querySelector('#compChoice');
-
     
     buttChoices.forEach(choice => choice.addEventListener('click', (e) => {
         buttChoices.forEach(btn => btn.classList.remove('selected'));
