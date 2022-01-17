@@ -10,3 +10,7 @@ TODO:
     -Create group of small divs to represent health bars
     -Pop divs off as points are scored
     -Align resultdiv contents
+    -Add visual sprites for round indicators
+    -Animate transitions
+    -Redo battlefield
+    -Consider adding sound
