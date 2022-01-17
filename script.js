@@ -2,13 +2,14 @@
 function game() {
     
     const playerScoreDisplay = document.querySelector('#playerScore');
-    const playerChoiceDisplay = document.querySelector('#playerChoice');
+    const playerChoiceDisplay = document.querySelector('#playerIcon');
     const compScoreDisplay = document.querySelector('#compScore');
-    const compChoiceDisplay = document.querySelector('#compChoice');
+    const compChoiceDisplay = document.querySelector('#compIcon');
     const buttChoices = document.querySelectorAll('.gameButton');
     const resultH3 = document.querySelector('#Result');
     const resultDiv = document.querySelector('.result');
     const battleDiv = document.querySelector('#fightTime');
+    const battleField = document.querySelector('.pBattleField');
     let selection = ['Rock', 'Paper', 'Scissors'];
     let pick;
     let tie;
@@ -32,11 +33,11 @@ function game() {
 
     function playRound(playerSelection, computerSelection) {
         
-        pick = `You picked ${playerSelection}.\nComputer picked ${computerSelection}. \n`;
-        tie = `${pick}It's a tie!`;
-        win = `${pick}You win!`;
-        lose = `${pick}You lose!`;
-        error = `Error! Try again! You entered ${playerSelection}`;
+        // pick = `You picked ${playerSelection}.\nComputer picked ${computerSelection}. \n`;
+        tie = `Tie!`;
+        win = `${playerSelection} \nbeats \n${computerSelection}`;
+        lose = `${computerSelection} \nbeats \n${playerSelection}`;
+        // error = `Error! Try again! You entered ${playerSelection}`;
     
         switch (playerSelection) {
             case 'Rock':
@@ -78,6 +79,9 @@ function game() {
 
         if ((playerScore == 5) || (computerScore == 5)) {
             buttChoices.forEach(buttonOption => buttonOption.removeEventListener('click'));
+            if (playerScore == 5) {
+                battleField.textContent = `You\nWin!`
+            } else battleField.textContent = `Compy\nWins!`
 
         }
     
@@ -86,9 +90,9 @@ function game() {
         playerSelection = e.currentTarget.getAttribute('id');
         computerSelection = computerPlay();
     
-        console.log(playerSelection);
+        // console.log(playerSelection);
 
-
+        
         // Trigger the change in resultDiv
         
         if (battleDiv.getAttribute('class') == 'battle hidden'){
@@ -96,7 +100,7 @@ function game() {
             resultDiv.classList.remove('updated');
             battleDiv.setAttribute('class', 'battle');
         };
-
+        
         let result = playRound(playerSelection, computerSelection);
         
         if (result === win){
@@ -107,19 +111,18 @@ function game() {
             round--;
         };
         
-        console.log(result);
-
+        if (playerScore < 5 && computerScore < 5){
+            battleField.textContent = `${result}`;
+        };
+        
         playerScoreDisplay.textContent = `${playerScore}`;
         playerChoiceDisplay.textContent = `${playerSelection}`;
-
-
+        
+        
         compScoreDisplay.textContent = `${computerScore}`;
         compChoiceDisplay.textContent = `${computerSelection}`;
-
-        // console.log(`Your score is ${playerScore}! \nComputer score is ${computerScore}!`);
-    
     }));
-
+    
     buttChoices.forEach(chosen => chosen.addEventListener('transitionend', (e) => {
         buttChoices.forEach(btn => btn.classList.remove('selected'));
     }));

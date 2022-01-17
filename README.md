@@ -5,8 +5,10 @@ I doubt any of this is best practice as I'm trying to write it all 'off the cuff
 
 
 TODO: 
-    -Design creative way to announce round winner
     -Announce winner
-    -Create group of small divs to represent health bars
-    -Pop divs off as points are scored
-    -Align resultdiv contents
+    -Fix bug in removing event listener on game completion
+    -Event listener needs a target function
+    -Game click listener function needs to be rewritten as function
+        declaration
+    -Study more on removing event listeners
+    
