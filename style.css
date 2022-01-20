@@ -77,7 +77,7 @@ body {
 
 #result,
 #fightTime {
-    min-height: 261px;
+    height: 261px;
 }
 
 .updated {
