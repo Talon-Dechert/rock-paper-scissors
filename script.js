@@ -72,26 +72,14 @@ function game() {
 
     //Button Functionality
     
-    buttChoices.forEach(choice => choice.addEventListener('click', (e) => {
+    function buttonClick(e) {
         buttChoices.forEach(btn => btn.classList.remove('selected'));
-
-        // End the game at 5 points
-
-        if ((playerScore == 5) || (computerScore == 5)) {
-            buttChoices.forEach(buttonOption => buttonOption.removeEventListener('click'));
-            if (playerScore == 5) {
-                battleField.textContent = `You\nWin!`
-            } else battleField.textContent = `Compy\nWins!`
-
-        }
-    
+        
+        
         e.currentTarget.classList.add('selected');
-
+        
         playerSelection = e.currentTarget.getAttribute('id');
         computerSelection = computerPlay();
-    
-        // console.log(playerSelection);
-
         
         // Trigger the change in resultDiv
         
@@ -101,6 +89,8 @@ function game() {
             battleDiv.setAttribute('class', 'battle');
         };
         
+        // Run game logic on button click
+
         let result = playRound(playerSelection, computerSelection);
         
         if (result === win){
@@ -111,23 +101,41 @@ function game() {
             round--;
         };
         
-        if (playerScore < 5 && computerScore < 5){
+        if ((playerScore < 5) && (computerScore < 5)){
             battleField.textContent = `${result}`;
         };
         
+        
+        // End the game at 5 points
+        
+        if ((playerScore == 5) || (computerScore == 5)) {
+            buttChoices.forEach(buttonOption => buttonOption.removeEventListener('click', buttonClick));
+            if (playerScore == 5) {
+                battleField.textContent = `You\nWin!`;
+            } else battleField.textContent = `Compy\nWins!`;
+        }
+
+
+        // Score display
+        
         playerScoreDisplay.textContent = `${playerScore}`;
         playerChoiceDisplay.textContent = `${playerSelection}`;
-        
-        
+         
         compScoreDisplay.textContent = `${computerScore}`;
         compChoiceDisplay.textContent = `${computerSelection}`;
-    }));
+    };
+
+    // Run button functionality
+
+    buttChoices.forEach(choice => choice.addEventListener('click', buttonClick));
+
+    // Remove button highlight
     
     buttChoices.forEach(chosen => chosen.addEventListener('transitionend', (e) => {
         buttChoices.forEach(btn => btn.classList.remove('selected'));
     }));
-
-
+    
+    
 }
 
 
