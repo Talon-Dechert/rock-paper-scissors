@@ -67,7 +67,7 @@ body {
 
 .result {
     min-width: 640px;
-    min-height: 100px;
+    min-height: 261px;
     border: 0.05em solid rgb(80, 65, 182);
     border-radius: 0.5em;
     background-color: slateblue;
@@ -75,9 +75,15 @@ body {
     font-size: 3em;
 }
 
+#result,
+#fightTime {
+    min-height: 261px;
+}
+
 .updated {
     display: flex;
     justify-content: center;
+    align-items: center;
     /* transition: 0.5s; */
 }
 
