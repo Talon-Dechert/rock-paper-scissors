@@ -11,11 +11,9 @@ function game() {
     const battleDiv = document.querySelector('#fightTime');
     const battleField = document.querySelector('.pBattleField');
     let selection = ['Rock', 'Paper', 'Scissors'];
-    let pick;
     let tie;
     let win;
     let lose;
-    let error;
     let playerSelection;
     let computerSelection;
 
@@ -33,11 +31,9 @@ function game() {
 
     function playRound(playerSelection, computerSelection) {
         
-        // pick = `You picked ${playerSelection}.\nComputer picked ${computerSelection}. \n`;
         tie = `Tie!`;
         win = `${playerSelection} \nbeats \n${computerSelection}`;
         lose = `${computerSelection} \nbeats \n${playerSelection}`;
-        // error = `Error! Try again! You entered ${playerSelection}`;
     
         switch (playerSelection) {
             case 'Rock':
@@ -65,7 +61,7 @@ function game() {
                     return(tie);
                 };
             default:
-                return(error);
+                return(console.log('Error in switch case Playround'));
             };
     };
 
@@ -97,8 +93,6 @@ function game() {
             playerScore++;
         } else if (result === lose) {
             computerScore++;
-        } else if (result === error){
-            round--;
         };
         
         if ((playerScore < 5) && (computerScore < 5)){
@@ -143,39 +137,3 @@ function game() {
 
 
 game();
-
-
-
-
-
-
-
-/*
-
-Old game logic for console playing
-
-for (let round = 1; round <=5; round++) {
-    console.log(`Round ${round}!`);
-    
-    let playerSelection = prompt(`Choose one! To quit, enter "nothing"!`, `Rock, Paper, Scissors!`);
-    let computerSelection = computerPlay();
-    
-    
-    let result = playRound(playerSelection, computerSelection);
-    
-    if (result === win){
-        playerScore++;
-    } else if (result === lose) {
-        computerScore++;
-    } else if (result === error){
-        round--;
-    } else if (result === quit){
-        console.log(quit);
-        break;
-    }
-    
-    console.log(result);
-    console.log(`Your score is ${playerScore}! \nComputer score is ${computerScore}!`);
-
-};
-*/
